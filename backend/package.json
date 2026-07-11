@@ -1,0 +1,24 @@
+{
+  "name": "content-repurposing-tool",
+  "version": "1.0.0",
+  "description": "Backend code of the code repurposing tool that takes the video transcript or articles and using an AI at the back it returns the 2-3 reel scripts each with a catchy hook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kushwahaTarun/Content-Repurposing-Tool.git"
+  },
+  "author": "Tarun Kushwaha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kushwahaTarun/Content-Repurposing-Tool/issues"
+  },
+  "homepage": "https://github.com/kushwahaTarun/Content-Repurposing-Tool#readme",
+  "dependencies": {
+    "@google/genai": "^2.11.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
