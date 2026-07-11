@@ -4,7 +4,8 @@
   "description": "Backend code of the code repurposing tool that takes the video transcript or articles and using an AI at the back it returns the 2-3 reel scripts each with a catchy hook",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
