@@ -12,7 +12,7 @@ app.post("/api/generate", async (req, res) => {
     const { text } = req.body;
 
     const interaction = await ai.interactions.create({
-      model: "gemini-3.5-flash",
+      model: process.env.GEMINI_MODEL || "gemini-3.5-flash",
       input: text,
       system_instruction,
     });
