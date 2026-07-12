@@ -1,9 +1,16 @@
 "use server";
 
-export async function submitQuery(prevState, formData: FormData) {
+import { ReelIdea } from "@/interface/interface";
+
+type QueryState = { output?: ReelIdea[]; error?: string };
+
+export async function submitQuery(
+  prevState: QueryState,
+  formData: FormData,
+): Promise<QueryState> {
     const topic = formData.get("topic");
 
-    if(!topic || !topic.trim().length) {
+    if(typeof topic !== "string" || !topic.trim().length) {
         return { error: "Topic is required" };
     }
 

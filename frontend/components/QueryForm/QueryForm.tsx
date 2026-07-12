@@ -2,6 +2,8 @@
 
 import { useActionState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 
 import { Textarea } from "@/components/ui/textarea";
@@ -32,18 +34,41 @@ export default function QueryForm() {
   }, [state.error]);
 
   return (
-    <>
-      <form className="mt-4 flex flex-col gap-4" action={formAction}>
-        <Textarea
-          name="topic"
-          className="max-h-100"
-          placeholder="Type your script"
-        />
-        <Button type="submit" className="cursor-pointer">
-          Generate reel ideas
-          {isPending && <Spinner data-icon="inline-start" />}
+    <motion.form
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+      className="glass mt-10 w-full rounded-2xl border border-border/80 p-3 shadow-2xl shadow-black/30"
+      action={formAction}
+    >
+      <Textarea
+        name="topic"
+        className="max-h-72 min-h-32 resize-none rounded-xl border-transparent bg-transparent text-base focus-visible:ring-primary/40"
+        placeholder="Paste your script, transcript, or topic idea here..."
+      />
+      <div className="flex items-center justify-between gap-3 px-1 pt-2">
+        <p className="hidden text-xs text-muted-foreground sm:block">
+          We&apos;ll generate hooks, scripts &amp; captions instantly.
+        </p>
+        <Button
+          type="submit"
+          disabled={isPending}
+          size="lg"
+          className="ml-auto cursor-pointer gap-2 rounded-xl bg-primary px-5 font-medium text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:scale-[1.02] active:scale-[0.98]"
+        >
+          {isPending ? (
+            <>
+              Generating
+              <Spinner data-icon="inline-end" />
+            </>
+          ) : (
+            <>
+              Generate reel ideas
+              <ArrowRight className="size-4" />
+            </>
+          )}
         </Button>
-      </form>
-    </>
+      </div>
+    </motion.form>
   );
 }
