@@ -1,6 +1,4 @@
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Spinner } from "@/components/ui/spinner";
+import QueryForm from "@/components/QueryForm/QueryForm";
 
 export default function Home() {
   return (
@@ -12,13 +10,7 @@ export default function Home() {
         </h1>
 
         {/* Textarea and the Generate reel ideas button */}
-        <form className="mt-4 flex flex-col gap-4">
-          <Textarea className="max-h-100" placeholder="Type your script" />
-          <Button type="submit" className="cursor-pointer">
-            Generate reel ideas
-            <Spinner data-icon="inline-start" />
-          </Button>
-        </form>
+        <QueryForm />
       </div>
     </section>
   );
