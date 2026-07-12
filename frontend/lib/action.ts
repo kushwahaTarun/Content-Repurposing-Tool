@@ -8,7 +8,7 @@ export async function submitQuery(prevState, formData: FormData) {
     }
 
     try {
-        const response = await fetch(`${process.env.API_BASE_URL}/api/generates`, {
+        const response = await fetch(`${process.env.API_BASE_URL}/api/generate`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ text: topic }),
